@@ -181,9 +181,8 @@ class BoincService:
 
     def _download_results(self, batch_id):
         """ download the results of a batch """
-        auth_hash = hashlib.md5(self._authenticator+str(batch_id)).hexdigest()
-        url = 'get_output.php'
-        request = '?cmd=batch_files&batch_id=%s&auth_str=%s' % (batch_id, auth_hash)
+        url = 'get_output3.php'
+        request = '?action=get_batch&batch_id=%s' % (batch_id)
 
         result, data = self._do_request(url+request, None)
 
